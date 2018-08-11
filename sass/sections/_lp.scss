@@ -1,0 +1,190 @@
+.lp{
+    height: 120vh;
+    width: 100%;
+    background-image: url(../img/lp_back.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: grayscale(60%);
+    position: relative;
+    z-index: 10000;
+
+    &__icon-wrapper{
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &__icon{
+        width: 4rem;
+        height: 4rem;
+        fill: white;
+    }
+    @include respond(tab-land){
+        height: 100vh;
+    };
+}
+
+
+//_____TOP NAV_____
+.top-nav{
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background-color: black;
+    color: lightgrey;
+    font-family: serif;
+    font-size: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    &__list{
+        list-style: none;
+        display: flex;
+    }
+    &__list-element{
+        margin: 4rem;
+        text-transform: uppercase;
+        @include respond(tab-land){
+            margin: 2rem;
+        };
+    }
+    @include respond(tab-land){
+        font-size: 2rem;
+    };
+    @include respond(tab-port){
+        display: none;
+    };
+}
+
+//_____TAB NAV_____
+.tab-nav{
+        background-color: green;
+        // width: 100%;
+        // height: 100vh;
+        // position: fixed;
+        // z-index: 1000;
+    &__icon-container{
+        position: absolute;
+        left: 2rem;
+        top: 3rem;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        @include respond(tab-port){
+            display: flex;
+        };
+    }
+    &__icon{
+        background-color: white;
+        width: 50px;
+        height: 5px;
+        position: relative;
+        transition: all .3s;
+        &::after{
+            content: "";
+            position: absolute;
+            background-color: white;
+            width: 50px;
+            height: 5px;
+            left: 0;
+            top: -15px;
+            transition: all .2s;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            background-color: white;
+            width: 50px;
+            height: 5px;
+            left: 0;
+            top: 15px;
+            transition: all .2s;
+        }
+    }
+    &:hover &__icon{
+        background-color: transparent
+    }
+    &:hover &__icon::after{
+        top: 0;
+        transform: rotate(135deg);
+    }
+    &:hover &__icon::before{
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
+
+//_____NAME AND LOGO_____
+.name-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include respond(tab-port){
+        flex-direction: column;
+    };
+    &__logo{
+        width: 30rem;
+        height: 30rem;
+        animation: introLogo 1.2s ease-out;
+    }
+    &__name-container-1{
+        background: black;
+        border-radius: 2rem 2rem 2rem 2rem;
+        align-self: flex-start;
+        animation: introLeft 1s ease-out;
+        white-space: nowrap;
+        @include respond(tab-port){
+            align-self: center;
+        };
+    }
+    &__name-container-2{
+        background-color: black;
+        border-radius: 2rem 2rem 2rem 2rem;
+        align-self: flex-end;
+        animation: introRight 1s ease-out;
+        white-space: nowrap;
+
+        @include respond(tab-port){
+            align-self: center;
+        };
+    }
+    &__company-name{
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: white;
+        padding: 0 3rem;
+        @include respond(tab-port){
+            font-size: 5rem;
+        };
+    }
+
+    &__slogan{
+        font-size: 1.4rem;
+        color: white;
+        text-transform: capitalize;
+        padding: 0 3rem;
+        @include respond(tab-port){
+            font-size: 2.4rem;
+        };
+    }
+}
+// THE TOGGLE CLASS FOR FADING IN
+
+.fade-in{
+    opacity: 1;
+    transition: all 2s;
+}

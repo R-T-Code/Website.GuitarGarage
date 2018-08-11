@@ -1,0 +1,21 @@
+.footer{
+    background-color: black;
+    padding: 6rem;
+
+    &__icon-wrapper{
+        margin: 2rem;
+    }
+    &__icon{
+        fill: white;
+        width: 4rem;
+        height: 4rem;
+    }
+    &__text{
+        color: white;
+        font-size: 1.4rem;
+    }
+    &__link{
+        text-decoration: none;
+        color: grey;
+    }
+}
